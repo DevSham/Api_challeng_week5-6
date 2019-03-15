@@ -37,5 +37,12 @@ def get_all_entries():
     return jsonify({'diary_entries': entries})
 
 
+# Getting a specific diary entry.
+@app.route('/diary/api/v1/entry/<int:entry_id>', methods=['GET'])
+def get_one_entry(entry_id):
+    diari = [entry for entry in Diary if entry['id'] == entry_id]
+    return jsonify({'My_diary': diari})
+
+
 if __name__ == '__main__':
     app.run(debug=True)
