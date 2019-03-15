@@ -30,5 +30,12 @@ def add_entry():
     return jsonify({"My_diary": Diary}), 201
 
 
+# Returning all diary entries
+@app.route('/diary/api/v1/entry', methods=['GET'])
+def get_all_entries():
+    entries = [entry for entry in Diary]
+    return jsonify({'diary_entries': entries})
+
+
 if __name__ == '__main__':
     app.run(debug=True)
